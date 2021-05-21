@@ -10,22 +10,12 @@ import webbrowser
 from bs4 import BeautifulSoup
 import requests
 
-# TamilText = "சம் சூப்பர் ஹீரோ சூப்பர் ஹீரோ!"
-# tts = gt.gTTS(text=TamilText, lang='ta')
-# tts.save("Tamil-Audio.mp3")
-# # os.system("Tamil-Audio.mp3")
-# playsound("Tamil-Audio.mp3")
-
-
-
 ## USER-SPEECH TO TEXT (USER) TAMIL
 
 def tamilSpeechToText():
     text = ""
     global WhatUSpoke
     r = sr.Recognizer()
-    # option = print("If you want to text , type TEXT or  if you want to speak, type AUDIO ")
-    # value = input("Type here : ")
 
     with sr.Microphone() as source:
         print("Say Something in Tamil")
@@ -66,13 +56,8 @@ def Speak(answer):
 
 ### CONTENT FOR SPEAKING
 
-Time = [" நேரம்", "காலம்", "மணி"]
-
-
 now = datetime.now()
 output = tamilSpeechToText()
-# translator= Translator(to_lang="en-IN")
-
 
 if "உன் பெயர் என்ன" in output:
     tamilTextToSpeech("என் பெயர் நிலா")
@@ -89,25 +74,6 @@ elif "நாள்" in output:
     translation = Translator.translate(current_day)
     tamilTextToSpeech("இன்று" + translation + "கிழமை")
     print("இன்று", translation, "கிழமை")
-# elif output[0:12] == "டிரான்ஸ்லேட்":
-#     english = output[13:]
-#     translator = translator(to_lang="en-IN")
-#     translation = translator.translate(english)
-#     print(translation)
-#     tamilTextToSpeech(translation)
 
 else:
     tamilTextToSpeech(output)
-
-
-
-
-
-
-
-
-
-
-
-
-
